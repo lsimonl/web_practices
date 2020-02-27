@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+
+
+
+<input  id='button1' type="button" value='全选按钮' name=""></br>
+<input  id='button2' type="button" value='不选按钮' name=""></br>
+<input  id='button3' type="button" value='反选按钮' name=""></br>
+<div id="div1">
+<input type="checkbox" name=""></br>
+<input type="checkbox" name=""></br>
+<input type="checkbox" name=""></br>
+<input type="checkbox" name=""></br>
+<input type="checkbox" name=""></br>
+<input type="checkbox" name=""></br>
+</div>
+
+<body>
+
+</body>
+
+<script type="text/javascript">
+	var button1 = document.getElementById('button1');
+	var button2 = document.getElementById('button2');
+	var button3 = document.getElementById('button3');
+
+	var div1=document.getElementById('div1');
+	var checkboxes=div1.getElementsByTagName('input');   //避免选择 button  ， 先建立一个div ， 再选div里面的input
+	
+	button1.onclick=function(){
+		
+		for (var i=0; i<=checkboxes.length; i++) {   //因为var checkboxes是一个数组（列表）， 所以有具体长度， 可以遍历列表。
+			checkboxes[i].checked=true;
+		};
+		};
+		
+
+	button2.onclick=function(){
+		
+		for (var i=0; i<=checkboxes.length; i++) {
+			checkboxes[i].checked=false;
+		};
+		};
+
+
+	button3.onclick=function(){
+		for (var i=0; i<=checkboxes.length; i++) {
+			if(checkboxes[i].checked==true){
+				checkboxes[i].checked=false;
+
+			}else{
+				checkboxes[i].checked=true;
+			}
+		};
+
+
+
+	}
+</script>
+</html>

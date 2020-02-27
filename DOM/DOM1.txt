@@ -1,0 +1,22 @@
+DOM1
+
+标签 CSS
+元素 JS   其实这三个是一样的东西。
+节点 DOM
+
+通过Dom 操作属性， 还可以灵活查找元素。
+
+Dom 其实就是document
+
+浏览器对dom支持
+IE      10%   IE9之后
+chrome Sarfari   60%
+firefox  99%
+
+parentNode :父节点
+offsetParent：某个元素用来定位的父集
+
+CSS
+绝对定位的元素absolute， 根据有定位的父集定位 relative ，如实在没有就找到 body tag
+
+offsetParent 是用来寻找绝对定位的父集

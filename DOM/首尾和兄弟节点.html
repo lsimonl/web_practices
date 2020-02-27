@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+
+<body>
+
+	<ul id="ul1">
+		<li>1</li>
+		<li>2</li>
+		<li>3</li>
+	<li>4</li>
+
+
+	</ul>
+
+</body>
+<script type="text/javascript">
+	
+	var oUl =document.getElementById('ul1');
+	var oLi0 =oUl.getElementsByTagName('li')[0];
+
+
+	if (oUl.firstElementChild) {               //检测 firstElementChild 是不是存在
+
+												
+	oUl.firstElementChild.style.background='red';
+																}  // firstElementChild 第一个元素子节点 兼容高级浏览器 非IE 6-8
+
+	else{                                        
+		oUl.firstChild.style.background='red';      //firstChild 在高级浏览器中 指的是文本节点，非元素节点  IE 6-8 无问题
+	}
+
+
+
+	if (oLi0.nextElementSibling) {
+			oLi0.nextElementSibling.style.background='green'; // nextSibling, nextElementSibling, previousSibling, previousElementSibling 兄弟节点
+	}
+	else{
+		oLi0.nextSibling.style.background='green';
+	}
+	
+
+</script>
+</html>

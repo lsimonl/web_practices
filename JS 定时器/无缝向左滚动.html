@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+
+		*{
+			margin:0;
+			padding: 0; /*初始化*/
+		}
+		
+		img{
+			height: 200px;
+			width: 150px;
+		}
+
+		#div1{              
+			width:600px;
+			height: 200px;
+			margin:100px auto;          /*注意 外边的父div 必须有固定的height 和 width， 否则overflow：hidden将不会成功 ，
+			                              具体宽与高可根据图片大小求和*/ 
+			position: relative;
+			/*background-color: red;*/ 
+			overflow: hidden;
+
+		}
+	
+		#div1 ul{
+			position: absolute; /*因为每次移动的是 整个ul 所以在ul里面加入 position absolute*/
+			left: 0;
+			top: 0;
+		}
+
+
+		#div1 ul li{
+			list-style: none;
+			float: left;
+
+		}
+
+	</style>
+</head>
+
+
+
+<body>
+	<div id="div1">
+		<ul>
+			
+			<li><img src="1.jpg"></li>
+			<li><img src="2.jpg"></li>
+			<li><img src="3.jpg"></li>
+			<li><img src="4.jpg"></li>
+			
+
+		</ul>
+	</div>
+
+</body>
+
+
+<script type="text/javascript">
+	 
+	 var oDiv1 =document.getElementById('div1');
+	 var oUl= oDiv1.getElementsByTagName('ul')[0];
+	 var aLi = oUl.getElementsByTagName('li');
+
+	 oUl.innerHTML=oUl.innerHTML+oUl.innerHTML;   //实现无缝滚动的布局其实并不是一组图片，而是两组相同图片，因为当第一张图片出去时，下一组的第一张要进来
+
+	 oUl.style.width=aLi[0].offsetWidth * aLi.length +'px';  //避免出现两行，要调整ul的长度
+
+	 //而ul的长度，等于 每一张的宽度 * 图片数量（ali。length 数组长度）
+
+	 setInterval(function(){
+
+	 	if (oUl.offsetLeft < - oUl.offsetWidth/2) {  //原理： 当图片滚动到第二组时 （及ul宽度的一半时）将第一组图片拉回来
+	 		                     //因为图片向左滚动 offsetleft为负数，并且负的越来越多，当滚动到一半时，让其回到原位 ，及style left 变为0 ，（offsetleft 会从0负的越来越多，直到重新变为0）
+	 		oUl.style.left='0';
+
+	 	}
+
+	 	oUl.style.left=oUl.offsetLeft-2+'px'; //向左走
+
+	 },30)
+
+
+
+
+</script>
+</html>

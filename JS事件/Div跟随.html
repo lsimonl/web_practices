@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+
+<style type="text/css">
+	body{
+		height: 2000px;
+	}
+	div{
+		width: 100px;
+		height: 100px;
+		background-color: red;
+	}
+</style>
+</head>
+<body>
+	<div id="div1"></div>
+
+</body>
+
+<script type="text/javascript">
+	
+	document.onmousemove=function(ev){//onmousemove 鼠标移动时触发事件
+
+		var oEvent = ev||event;
+		var oDiv = document.getElementById('div1');
+		var scroll = document.documentElement.scrollTop || document.body.scrollTop;
+		
+		oDiv.style.left=oEvent.clientX+'px';
+		oDiv.style.top= oEvent.clientY+scroll+'px';
+
+
+
+
+	}
+</script>
+</html>

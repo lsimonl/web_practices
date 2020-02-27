@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset="utf-8">
+
+	<style type="text/css">
+
+		div{
+			float: left;
+			margin-right: 20px;
+		}
+
+		#div1{
+			width: 100px;
+			height: 50px;
+			background-color: grey;
+		}
+	
+			#div2{
+			width: 150px;
+			height: 100px;
+			background-color: yellow;
+			display: none;
+		}
+
+	</style>
+</head>
+
+
+<body>
+	<div id="div1"></div>
+	<div id="div2"></div>
+
+</body>
+<script type="text/javascript">
+	
+	var odiv1 =document.getElementById('div1');
+	var odiv2 =document.getElementById('div2');
+	var timer = null;
+
+
+	odiv1.onmouseover=odiv2.onmouseover=function(){  //相同的东西用连等方式进行简化
+		odiv2['style']['display']='block';
+		clearTimeout(timer);
+	}
+
+	odiv1.onmouseout=odiv2.onmouseout=function(){
+
+		timer= setTimeout(function(){
+			odiv2['style']['display']='none';
+
+		}, 500)
+	}
+
+
+
+
+
+
+
+
+
+</script>
+
+
+
+</html>

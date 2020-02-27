@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+
+	<style type="text/css">
+		
+		#div2{
+			width: 200px;
+			height: 250px;
+			background-color: blue;
+		}
+
+		#div3{
+			width: 300px;
+			height: 500px;
+			background-color: yellow;
+		}
+	</style>
+</head>
+
+
+
+<body>
+
+	<div id="div1" style="width: 100px; height: 150px; background-color: red;"></div>
+
+	<div id="div2"></div>
+
+	<div id="div3"></div>
+
+</body>
+
+<script type="text/javascript">
+	var oDiv1 = document.getElementById('div1');
+	function inlineStyle(){
+		var oDiv1 = document.getElementById('div1');
+		alert(oDiv1.style.width);
+	}
+	inlineStyle();
+//////////////////////////////////
+
+
+	function inHeadStyle(){
+		var oDiv2 = document.getElementById('div2');
+
+		//alert(oDiv2.currentStyle.width);  // 适用于IE 内核浏览器， 在其他浏览器中的 typeof 是 undefined。
+		//alert(typeof(oDiv2.currentStyle));// 在其他浏览器中的 typeof 是 undefined。
+		//alert(getComputedStyle(oDiv2, false).width); 适用于chrome firefox 浏览器
+
+		//重点 ： 所以为提高兼容性， 一般使用 if else 为 流程控制
+
+		if (oDiv2.currentStyle) {    //在true的情况下 （不是undefined）执行IE浏览器操作
+			alert(oDiv2.currentStyle.width);
+		}else{                      //false 执行其他浏览器操作；
+			alert(getComputedStyle(oDiv2, false).width);  //括号中第二个参数可随便填。
+		}
+
+	}
+	inHeadStyle();
+////////////////////////////////////////////// 可调用形式
+
+	function getstyle(object,stylename){
+
+		if (object.currentStyle) {          //true: IE浏览器
+
+			return object.currentStyle[stylename]; //函数返回值: 返回一个数值，后面可以调用。
+
+		}else{ //false: chrome, firefox
+
+			return getComputedStyle(object, false)[stylename]; //只能提取 height，width这类单一样式， background，border这类复合样式不可以
+		}
+
+
+
+	}
+
+	var div3 =document.getElementById('div3');
+
+
+	alert(getstyle(div3,'height')) ;//注意用字符串
+
+	alert(getstyle(div1,'backgroundColor'));
+
+
+
+
+
+
+
+
+
+
+</script>
+</html>

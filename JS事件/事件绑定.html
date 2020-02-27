@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+
+	<style type="text/css">
+		
+		#div1{
+			width: 150px;
+			height: 150px;
+			background-color: red;
+		}
+	</style>
+</head>
+
+<body>
+	<div id="div1"></div>
+
+</body>
+<script type="text/javascript">//事件绑定能够把一个object 绑定多个事件
+							//attachEvent 与 addeventlistener分别针对Ie 与 Chrome
+	
+	var oDiv = document.getElementById('div1');
+
+	if (oDiv.attachEvent) {
+		oDiv.attachEvent('onclick', function(){
+			alert('aaa');
+		})
+
+		oDiv.attachEvent('onclick',function(){
+			alert('bbb');
+		})
+
+
+	}
+	else{
+		oDiv.addEventListener('click',function(){
+			alert('aaa');
+
+		}, false);
+
+		oDiv.addEventListener('click',function(){
+		alert('bbb')
+		},false)
+
+
+	}
+</script>
+</html>

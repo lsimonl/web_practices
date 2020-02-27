@@ -1,0 +1,40 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>innerHTML</title>
+
+<style type="text/css">
+	
+	div{
+		
+		width: 200px;
+		height: 150px;
+		border: solid 1px black;
+	}
+
+
+</style>
+</head>
+
+<body>
+	
+<input type="text" name="" id="input1">
+<input type="button" name="" id="button1" value="设置文字">
+<div id="div1"></div>
+
+
+</body>
+
+<script type="text/javascript">
+	var text1 = document.getElementById('input1');
+	var button1= document.getElementById('button1');
+	var div1= document.getElementById('div1');
+
+	button1.onclick=function(){
+		div1.innerHTML=text1.value;                                            //innerHTML 意为改变HTML标签里面的   《div》 innerhtml 《/div》 
+	}																			//并且innerhtml 里面可以放html标签
+
+</script>
+</html>

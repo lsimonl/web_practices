@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<input type="text" name="" id="text1">
+	<input type='button' name="" id="btn1" value="添加元素li">
+	<ul id="ul1">
+		
+
+
+	</ul>
+
+</body>
+<script type="text/javascript">
+	oBtn = document.getElementById('btn1');      // 父级.appendChild（子节点）
+	oUl = document.getElementById('ul1');			// 父级.insertBefore（子节点，数组中的位置）
+	oText = document.getElementById('text1');
+
+	oBtn.onclick=function(){
+
+		var oLi = document.createElement('li') ;  //创立一个新的变量，  createElement里参数 为html标签
+
+		var aLi = document.getElementsByTagName('li'); //选中所有li ，方便做排序
+
+		//oUl.appendChild(oLi); 在末尾添加 为oUl的子元素
+
+		oLi.innerHTML=oText.value ;  //将新建li的内容设置为 text的值
+
+		if (aLi.length > 0) {            //为了兼容更多的浏览器，当length大于0，即已经有了li，把新的li插入到数组的第一个
+			oUl.insertBefore(oLi, aLi[0]);
+		}else{
+			oUl.appendChild(oLi); //否则， 即无li，直接增加li 
+		}
+
+
+	}
+
+
+</script>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>面向对象1</title>
+</head>
+<body>
+
+</body>
+<script type="text/javascript">
+	
+	function createPerson(name,qq){          //构造函数
+
+		var obj = new Object(); //创建对象      
+
+		obj.name = name ;   //添加类属性
+		obj.qq = qq;   //obj的qq属性 被赋值为参数 qq
+
+		obj.showName=function(){//添加类方法
+			alert('my name is '+this.name);//this 都属于对象
+		}
+
+		obj.showQQ=function(){
+			alert('my QQ is '+obj.qq);
+		}
+
+		return obj; //记住一定要返回obj 传给外面
+	}
+
+	var obj= createPerson('simon','1241421');
+	var obj2=createPerson('lol','906497djhskfd');
+
+	obj.showName();
+	obj2.showQQ();
+
+</script>
+</html>

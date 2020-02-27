@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+	<title></title>
+	<style type="text/css">
+		
+
+	#div2{
+		width: 200px;
+		height:200px;
+		background-color: red;
+	}
+	
+
+	#div3{
+		width: 200px;
+		height: 200px;
+		background:red;
+
+
+	}
+	</style>
+</head>
+
+
+
+<body>
+
+
+<input type="button" value="变绿" onclick="setcolor('green')">
+<input type="button" value="变黄" onclick="setcolor('yellow')">
+<input type="button" value="变黑" onclick="setcolor('black')">
+<div id="div2"></div></br>
+
+<div id="div3"></div>
+<input type="button" value="变宽" onclick="changestyle('width','400px')">
+<input type="button" value="变高" onclick="changestyle('height','400px')">
+<input type="button" value="变绿" onclick="changestyle('background','green')">
+</body>
+
+<script type="text/javascript">
+/*
+function showalert(a,b){                     //括号中参数只起到占位的作用，类似于变量， 具体值要看调用时的值
+	alert(a+b);
+}
+showalert(5,12);
+*/
+
+
+function setcolor(color){
+	var div2=document.getElementById('div2');
+	div2.style.background=color ;    //将div2的backgroud 赋值为参数 color
+
+
+}
+
+
+function changestyle(stylename,stylevalue){
+	var div3=document.getElementById('div3');
+	div3.style[stylename]=stylevalue;
+}
+
+//setcolor('green')  调用，将green传回去
+
+
+
+/*
+var div2=document.getElementById('div2');
+function togreen(){
+	div2.style.background='green';
+
+}
+
+function toyellow(){
+	div2.style.background='yellow';
+
+}
+
+function toblack(){
+	div2.style.background='black';
+
+} */
+
+</script>
+
+</html>

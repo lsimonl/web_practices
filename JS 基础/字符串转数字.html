@@ -1,0 +1,37 @@
+
+
+<script type="text/javascript">
+	
+var a = '12';
+
+//alert (a+1);
+//alert (parseInt(a)+1);  //用parseint将字符串转为数字 
+
+b='26px02';
+alert(parseInt(b)); //parseint 工作原理： 从左至右，遇到非数字就停止。 在无数字时出现 Nan-   not a number
+
+
+c='abc';
+alert(isNaN(c)); //可以用isnan 检测是否为数字，  配合else elseif可达到流程控制。
+
+d='3.6';
+
+alert(parseFloat(d)); // float
+
+//以上为强制类型转换，显式类型转换
+
+//以下为隐式类型转换
+
+var e = 5;
+var f= '5';
+
+alert(e==f); // true 计算机先转换成了相同类型，然后给出答案。
+
+alert(e===f);//false 不转换类型，直接比
+
+var g='15';
+alert(g-f); // 得出10 计算机隐式转换类型； 
+
+
+
+</script>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+</body>
+<script type="text/javascript">
+	
+	function A(){
+		this.abc =12;
+	}
+
+	A.prototype.show=function(){
+		alert(this.abc);
+	}
+
+	function B(){
+		A.call(this);  //继承父亲A 的属性
+	}
+
+	//B.prototype=A.prototype; //这样会导致A 与B 两个互相影响
+
+	for(var i in A.prototype){ //继承父亲A 的方法
+		B.prototype[i] =A.prototype[i];
+	}
+
+
+	var obj = new B();
+	obj.show();
+</script>
+</html>

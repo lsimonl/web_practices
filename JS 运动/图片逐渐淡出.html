@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+		
+		div{
+			width: 200px;
+			height: 200px;
+			background-color: red;
+			filter: (opacity:30);  /*兼容IE 和chrome*/
+			opacity: 0.3;     
+			}
+	</style>
+</head>
+
+
+<body>
+	<div id="div1"></div>
+
+</body>
+<script type="text/javascript">
+	
+var oDiv = document.getElementById('div1');
+
+oDiv.onmouseover=function(){
+	move(100)  //目标透明度为全满
+
+}
+oDiv.onmouseout=function(){
+	move(30)  //目标透明度回复为30
+}
+
+//主义思想： 将alpha值 和改变速度设置为变量的形式
+
+var alpha = 30 ;
+var timer = null;
+
+function move(itarget){
+
+	var oDiv = document.getElementById('div1');
+
+	clearInterval(timer); //必须先关闭定时器，否则会重复
+
+	timer=setInterval(function(){
+
+		var speed = 0; //设定变化速度的变量
+
+		if (alpha < itarget) {
+			speed = 4 ;
+		}
+		else{
+			speed = -4;
+		}
+
+		if (alpha == itarget) {
+			clearInterval(timer); //运动思想：到达相应位置时关闭；
+		}
+		else{
+			alpha +=speed;
+			oDiv.style.filter='alpha(opacity:'+alpha+')'//用字符串拼接
+			oDiv.style.opacity=alpha/100 ;
+		}
+
+
+	},30   )  // 不要忘这里设置定时器时间
+}
+
+</script>
+</html>

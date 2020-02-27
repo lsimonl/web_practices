@@ -1,0 +1,72 @@
+s<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+
+
+	<style type="text/css">
+
+
+		
+		#div1 .active{
+			background-color: yellow;
+		}
+
+		#div1 div{
+			width: 200px;
+			height: 200px;
+			background-color: grey;
+			border: 1px solid #999;
+			display: none;
+		}
+	</style>
+</head>
+
+
+
+<body>
+	<div id="div1">
+		<input type="button" name="" value="教育" class="active">
+		<input type="button" name="" value="培训">
+
+		<input type="button" name="" value="招生">
+
+		<input type="button" name="" value="出国">
+
+		<div style="display: block;">内容1</div>
+		<div>内容2</div>
+		<div>内容3</div>
+		<div>内容4</div>
+
+	</div>
+</body>
+
+<script type="text/javascript">
+	var alldiv = document.getElementById('div1');
+	var buttons = alldiv.getElementsByTagName('input');
+	var subdivs = alldiv.getElementsByTagName('div');
+
+
+	for (var i =0; i < buttons.length;i++ ){                //用for 循环的方式给每一个按钮加事件
+
+		buttons[i].index = i ;                //关键点： 从JS里设置按键的属性index， 因为按键与内容的共同点就是 他们在列表中的排序相同
+		buttons[i].onclick=function(){
+
+			for (var i=0; i<buttons.length;i++){                //当点击另一个按钮时，上一个被取消的原理：
+																	//除默认设定的按钮外，先设置按钮class为空，当点击时增加一个class，按钮变黄，再次点击时，事件被重新触发，于是被点按钮变黄，其余按钮class变为空。
+				buttons[i].className='';
+				subdivs[i].style.display='none';
+			}
+				this.className='active'   ;                                   //this 意思是当前引发事件的这个元素，此处为被点击的button
+				subdivs[this.index].style.display='block';               //因为内容与按键的排序相同，所以设定index属性， this代表按键，当按键被点击时，对应index的display变为block。 
+		}
+
+
+
+
+//思想：先把所有的都隐藏，再把当前的显示出来，通过设置共同的属性 index。
+
+	}
+
+</script>
+</html>

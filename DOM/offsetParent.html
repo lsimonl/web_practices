@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+
+	<style type="text/css">
+		#div1{
+			width: 200px;
+			height: 200px;
+			background-color: grey;
+			margin:100px;
+			position: relative; /*父集必须 设为relative 子集才会跟着走 */
+
+		}
+
+		
+		#div2{
+			width: 100px;
+			height: 100px;
+			background-color: red;
+			position: absolute;  /*绝对定位 是指 子元素在父集 中的绝对位置 */
+			left: 50px;
+			top: 50px;
+		}
+
+	</style>
+</head>
+
+
+
+
+<body>
+
+
+	<div id="div1">
+		<div id="div2"></div>
+
+
+	</div>
+
+</body>
+
+<script type="text/javascript">
+	var oDiv2 = document.getElementById('div2')
+	//alert(oDiv2.offsetLeft)
+
+  	alert(oDiv2.offsetParent);
+
+</script>
+</html>

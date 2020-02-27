@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+
+	<style type="text/css">
+		
+		#div1{
+			width: 150px;
+			height: 150px;
+			background-color: red;
+		}
+	</style>
+</head>
+<body>
+	<div id="div1"></div>
+</body>
+
+<script type="text/javascript">
+	
+	function myAddEvent(obj, event,func){
+		if (obj.attachEvent) {
+			obj.attachEvent('on'+event,func);
+		}
+		else{
+			obj.addEventListener(event,func,false);
+		}
+	}
+
+	var oDiv = document.getElementById('div1');
+	
+	myAddEvent(div1,'mouseover',function(){
+		alert('yes');
+	})
+
+	myAddEvent(div1,'mouseover',function(){
+		alert('yes again');
+	})
+</script>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+
+<style type="text/css">
+	
+	#div1{
+		width: 100px;
+		height: 100px;
+		position: absolute;
+		background-color: red;
+		left: 600px;
+		top: 50px;
+	}
+
+	#div2{
+		width: 1px;
+		height: 300px;
+		position: absolute;
+		left: 300px ;
+		top: 0;
+		background-color: black;
+	}
+
+
+</style>
+</head>
+
+<body>
+	<input type="button" name="" value="开始运动" onclick="move()">
+	<div id="div1"></div>
+	<div id="div2"></div>
+
+</body>
+
+<script type="text/javascript">
+	//缓冲运动的思想思想是 调节speed，  当距离减小时速度减小 与offsetLeft正相关
+
+	function move(){
+
+	var oDiv =document.getElementById('div1');
+	setInterval(function(){
+
+		var speed = (300-oDiv.offsetLeft)/10  //offsetleft会变，所有速度会变, 被除的数字可以调节速度
+
+		speed=speed>0?Math.ceil(speed):Math.floor(speed);  //三目表达式，目的是速度取整数
+
+		oDiv.style.left = oDiv.offsetLeft+speed+'px';
+
+
+	},30)
+	}
+
+
+</script>
+</html>

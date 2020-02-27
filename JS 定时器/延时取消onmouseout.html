@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset="utf-8">
+
+	<style type="text/css">
+
+		div{
+			float: left;
+			margin-right: 20px;
+		}
+
+		#div1{
+			width: 100px;
+			height: 50px;
+			background-color: grey;
+		}
+	
+			#div2{
+			width: 150px;
+			height: 100px;
+			background-color: yellow;
+			display: none;
+		}
+
+	</style>
+</head>
+
+
+<body>
+	<div id="div1"></div>
+	<div id="div2"></div>
+
+</body>
+
+
+<script type="text/javascript">
+	var odiv1 =document.getElementById('div1');
+	var odiv2 =document.getElementById('div2');
+	var timer = null;
+
+	odiv1.onmouseover=function(){
+		odiv2['style']['display']='block';  //注意此种写法必须为字符串
+		clearTimeout(timer); //当鼠标重新回到div1 时，关闭定时器，这样div1 与div2能够同时显示。
+	}
+
+
+	
+	odiv1.onmouseout=function(){
+
+		timer = setTimeout(function(){                     //此处注意三点 1.要在mouseout后面写settimeout 因为要先触发事件 2.settimeout后面要加一个function 3. settimeout比set interval在此处适合，因为非重复
+		odiv2['style']['display']='none';
+	},500) }
+
+
+  	odiv2.onmouseover=function(){
+  		clearTimeout(timer);
+  		odiv2['style']['display']='block';  //虽然已经显示出来，但是为了后期合并，写出这一步
+  	}
+
+  		odiv2.onmouseout=function(){
+
+  		timer= setTimeout(function(){
+  		odiv2['style']['display']='none';
+
+  	}, 500)
+  	}
+
+</script>
+</html>

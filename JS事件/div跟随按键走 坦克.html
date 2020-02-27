@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+
+		
+		#div1{
+			width: 100px;
+			height: 100px;
+			position: absolute;
+			left: 480px;
+			top: 400px;
+		/*	background-color: #ccc; */
+		}
+
+		#bullet{
+			width: 10px;
+			height: 10px;
+			position: relative;
+			left: 64px;
+			top: -70px;
+			display: none;
+			
+		}
+
+		#bullet img{
+			width: 70px;
+			height: 70px;
+		}
+
+		#enemy img{
+			
+			position: absolute;
+			opacity: 100;
+		}
+
+
+	</style>
+	<script src="perfectmove.js"></script>
+</head>
+
+
+<body>
+	<div id="enemy">
+		<img src="entank2.jpg">
+		
+	</div>
+
+
+	<div id="div1">
+		<div id="bullet"><img src="bullet1.jpg"></div>
+		<img src='mytank.jpg'>
+	</div>
+
+	
+
+</body>
+<script type="text/javascript">
+	
+		var oDiv = document.getElementById('div1');
+		var oBullet = document.getElementById('bullet');
+		var oEnemy = document.getElementsByTagName('img')[0];
+		var oEnemyBlood = 100;
+		
+		var timer=null;
+		timer=setInterval(function(){
+			oEnemy.style.left= oEnemy.offsetLeft+2+'px';
+
+
+		},30)
+
+
+	document.onkeydown=function(ev){
+
+		var oEvent = ev||event;
+		var oDiv = document.getElementById('div1');
+
+		if (oEvent.keyCode==65) { // A: LEFT
+			oDiv.style.left=oDiv.offsetLeft-10+'px';
+		}
+		else if (oEvent.keyCode==68) { //D : RIGHT
+			oDiv.style.left=oDiv.offsetLeft+10+'px';
+		}
+		else if (oEvent.keyCode==87) { //W : TOP
+			oDiv.style.top=oDiv.offsetTop-10+'px';
+		}
+		else if (oEvent.keyCode==83) { //s : down
+			oDiv.style.top=oDiv.offsetTop+10+'px';
+		}
+		else if (oEvent.keyCode==13) {
+			shoot();
+			damage();
+
+		}
+
+	/*	else if (oEvent.keyCode==83 && oEvent.keyCode==65 ) { 
+			oDiv.style.top=oDiv.offsetTop+10+'px';
+			oDiv.style.left=oDiv.offsetLeft-10+'px';  */
+	}
+////////////////////////////////////////////////////////////////////////////////////////////////////
+
+	function shoot(){
+		oBullet.style.display='block';
+		move(oBullet,{top : -550},function(){
+			oBullet.style.display='none';
+			move(oBullet,{top:-70})
+		});
+   		
+   		oEnemyBlood -=100;
+	}
+
+	document.onclick=function(){
+		shoot();
+		damage();
+	}
+
+	function damage(){
+		
+			if (oEnemyBlood==0) { //Debug  there is a issue 如何判断炮弹打到了enemy的div的范围内
+			setInterval(function(){
+					oEnemy.style.opacity-=10;
+					clearInterval(timer);
+
+
+				},500);
+			
+
+		}
+	}
+	
+</script>
+</html>

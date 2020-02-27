@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>if </title>
+	<style type="text/css">
+		
+		div{
+			width: 100px;
+			height: 100px;
+			background-color: grey;
+			display: none;
+		}
+
+
+	</style>
+</head>
+
+
+
+<body>
+<button onclick="showhide()"> dian wo</button>
+
+<div id="divtest" > </div>
+
+
+
+
+
+
+</body>
+<script type="text/javascript">
+	
+	function showhide(){
+	var divtest = document.getElementById('divtest');
+
+	if (divtest.style.display=='none') {
+		divtest.style.display='block';
+	}else{
+		divtest.style.display='none';
+	}
+}
+</script>
+</html>

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+		
+		table{
+			border: 1px solid black;
+			width: 600px;
+			margin:0 auto;
+			
+		}
+	
+		div{
+			margin:20px;
+			text-align: center;
+		}
+
+		
+	</style>
+</head>
+
+
+<body>
+	<div>
+	姓名 
+	<input type="text" name="" id="name">
+	年龄
+	<input type="text" name="" id="age">
+	<input type="button" name="" value="提交" id="btn1">
+	</div>
+	
+	
+	
+
+<table id="tab1">
+
+	<thead>
+		<td>ID</td>
+		<td>名字</td>
+		<td>年龄</td>
+		<td>操作</td>
+		
+	</thead>
+	<tbody>
+		<tr>
+			<td>1</td>
+			<td>西蒙</td>
+			<td>23</td>
+			<td></td>
+			
+		</tr>
+
+		<tr>
+			<td>2</td>
+			<td>jack</td>
+			<td>22</td>
+			<td></td>
+			
+		</tr>
+
+		<tr>
+			<td>3</td>
+			<td>tom</td>
+			<td>24</td>
+			<td></td>
+			
+		</tr>
+	</tbody>
+	
+
+
+
+
+</table>
+</body>
+<script type="text/javascript">
+	var oTable =document.getElementById('tab1');
+	//alert(oTable.tBodies[0].rows[1].cells[1].innerHTML);  javascript 有特殊操作table元素的方式  tBodies，tHead, tFoot, rows,cells 除thead和tfoot其他为数组
+	var oldColor=''; //建立一个变量，为了颜色还原
+
+	for (var i = 0; i<oTable.tBodies[0].rows.length; i++){   //注意是rows的length
+
+		oTable.tBodies[0].rows[i].onmouseover = function(){
+			oldColor= this.style.background; //旧的颜色赋值，为了还原
+			this.style.background='green';
+		}
+
+		oTable.tBodies[0].rows[i].onmouseout= function(){
+			this.style.background=oldColor;
+		}
+
+
+
+		if (i%2) {          //i%2 ==0 时，布尔值为false，执行else语句
+			oTable.tBodies[0].rows[i].style.background='';
+		}
+		else{
+			oTable.tBodies[0].rows[i].style.background='grey';
+		}
+	}
+
+	//////////////////////////// DOM 操作
+	var btn1 =document.getElementById('btn1');
+	var oAge = document.getElementById('age');
+	var oName = document.getElementById('name');
+	var id = oTable.tBodies[0].rows.length+1;  //在原有tbodies的rows的长度上加1， 即为新的id， 但未考虑删除后情况
+
+	btn1.onclick=function(){
+
+		var oNewRow = document.createElement('tr');           //建立新的标签tr
+		var oTableData = document.createElement('td');           //建立新的标签td
+		oTableData.innerHTML= id++ ;            //设置id自增，防止删除情况出现id重复
+		oNewRow.appendChild(oTableData);         // 将td传进tr
+
+		var oTableData = document.createElement('td');
+		oTableData.innerHTML= oName.value ; 
+		oNewRow.appendChild(oTableData);
+		
+		var oTableData = document.createElement('td');
+		oTableData.innerHTML= oAge.value  ; 
+		oNewRow.appendChild(oTableData);
+
+		var oTableData = document.createElement('td');
+		oTableData.innerHTML= '<a href= "javascript: ;" >删除</a>'  ; //此处可知innerHTML可添加标签
+		oNewRow.appendChild(oTableData);
+		
+		oTable.appendChild(oNewRow);
+
+		////////////////删除
+		oNewRow.getElementsByTagName('a')[0].onclick=function(){
+			oTable.removeChild(this.parentNode.parentNode)  //a的父亲是td， td的父亲是tr， 要删除的是tr
+		}
+	}	
+
+
+</script>
+</html>

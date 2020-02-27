@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<input type="text" name="" id="text1">
+	<input type="button" name="" id="but1" value="按钮">
+
+</body>
+
+<script type="text/javascript">
+	var oText =document.getElementById('text1');
+	var oBut =document.getElementById('but1');
+
+	oBut.onclick=function(){
+		//oText.value='asd';
+		//oText['value']='fgh';
+
+		oText.setAttribute( 'value' , '第二个参数是 值');  //DOM 方式操作  setAttribute 参数是（属性名称，值）
+
+	}												// 还有 getAttribute（属性名称）  为了获取，  removeAttribute（属性名称）为了删除S
+
+</script>
+</html>

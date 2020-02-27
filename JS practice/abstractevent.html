@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>事件提取</title>
+	
+	<style type="text/css">
+		
+	div{
+		background: white;
+		width: 200px;
+		height: 200px;
+		border: 1px solid;
+		float: left;
+		margin: 20px;
+	}
+	</style>
+
+</head>
+<body>
+
+	<input type="button" value="点我试试" id="button1">
+	<input type="button" value="也点我试试" id="button2">
+
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+
+</body>
+
+<script type="text/javascript">
+	
+	
+	var button1= document.getElementById('button1');
+/*	function abc(){
+		alert('aaa');
+	}
+
+	button1.onclick=abc;            //在javascriot中提取事件 调用函数时无括号  */
+
+
+	//或采用匿名函数
+
+	button1.onclick=function (){
+		alert('点错了哈哈哈');
+	}
+///////////////////////////////////////////
+
+
+
+	var button2= document.getElementById('button2');
+	
+	button2.onclick=function(){
+	
+	var divs =document.getElementsByTagName('div');  //返回了一个数组 array
+
+	//alert(divs.length);            //  数组都会有length，可以查看  
+	                                  //设置元素样式 一次只能对一个元素，否则报错 故不能 divs.style.background=''
+
+
+	//divs[0].style.background='red';
+
+     
+
+    for (var i=0 ; i <= divs.length; i++) {
+    	
+    	 divs[i].style.background='red';
+   
+ }
+
+
+
+}
+</script>
+</html>

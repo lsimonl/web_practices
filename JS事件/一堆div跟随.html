@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+
+	<style type="text/css">
+		
+		div{
+			width: 30px;
+			height: 30px;
+			position: absolute;
+			background-color: red;
+		}
+
+
+	</style>
+	
+</head>
+<body>
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+
+</body>
+<script src="position.js"></script>
+<script type="text/javascript">
+	
+
+	
+	document.onmousemove=function(ev){
+		var aDiv = document.getElementsByTagName('div');
+		var oEvent = ev || event;
+
+		var pos = position(oEvent);
+
+		//跟随思想：后一个跟前一个， 从最后一个开始
+
+		for(var i = aDiv.length-1 ; i>0; i--){
+			aDiv[i].style.left = aDiv[i-1].offsetLeft+'px';
+			aDiv[i].style.top = aDiv[i-1].offsetTop+'px';
+		}
+		//关键点在于设置第一个div位置
+		aDiv[0].style.left=pos.x+'px';
+		aDiv[0].style.top= pos.y+'px';
+	}
+</script>
+</html>

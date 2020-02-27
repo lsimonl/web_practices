@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+
+
+<body>
+
+</body>
+<script type="text/javascript">
+	
+	function CreatePerson(name,qq){  //类属性写在构造函数里，因为每个obj属性不同
+ 						//用this时 系统会自动生成object， 并且自动return返回值
+		this.name=name;
+		this.qq=qq;
+	}
+
+	CreatePerson.prototype.showName=function(){  //类方法写在 prototype原型里，因为类方法都一样 原型相当于css的class
+		alert('my name is '+this.name);				//类。prototype。方法=function（）｛｝
+	}
+
+	CreatePerson.prototype.showQQ=function(){
+		alert('my QQ is '+ this.qq);
+	}
+
+	var obj1 = new CreatePerson('simon','12014214'); //new 后面会产生一个对象 object
+	var obj2 = new CreatePerson('loda','asdsaf');
+
+	obj1.showName();
+	obj1.showQQ();
+	obj2.showName();
+	obj2.showQQ();
+
+	alert(obj1.showName == obj2.showName);//测试为相同类方法，OOP成功s
+</script>
+</html>

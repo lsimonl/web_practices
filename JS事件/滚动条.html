@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+		
+		#parent{
+			width: 600px;
+			height: 20px;
+			background-color: #ccc;
+			position: relative;
+			margin:10px auto;
+		}
+
+		#div1{
+			width: 20px; 
+			height: 20px; 
+			background-color: red; 
+			position: absolute;
+		}
+
+		#div2{
+			width: 400px;
+			height: 300px;
+			border: 1px solid black;
+			overflow: hidden;
+			position: relative;
+		}
+
+		#div3{
+			position: absolute;
+			top:0;
+			left: 0;
+			padding: 5px;
+			background-color: yellow;
+			position: absolute;
+		}
+	</style>
+</head>
+<body>
+	<div id="parent">
+		<div id="div1"></div>
+	</div>
+
+	<div id="div2">
+				<div id="div3">在中国这么多的体育运动中，中国女排现在也是深受大家的喜欢。女排姑娘们不仅仅是实力强悍，而且其中也是有着颜值很高的球员们的。但是在女排中也是有一位身高只有1米74的姑娘，这位姑娘就是来子山东的王梦洁。在整个球队中，球员们的身高动不动就是一米九以上的，作为一个小个子的她也是在球队中显得十分出众。但是她的实力却是十分强悍的，而且她打的还是自由人的位置，所以说只要技术过硬，身高也是没有问题的。在她二十岁的时候也是被招到了国家队中去，在那一年的女排世界杯中也是跟随中国女排拿刀了世界杯的总冠军，当时她在自由人的位置上边还并不是主力球员，当时还是林莉在担任着自由人的主力，所有虽然说王梦洁不断的再展现自己的优秀变现，但是在16年的里约奥运会上边，她也是没有能够参加
+				在中国这么多的体育运动中，中国女排现在也是深受大家的喜欢。女排姑娘们不仅仅是实力强悍，而且其中也是有着颜值很高的球员们的。但是在女排中也是有一位身高只有1米74的姑娘，这位姑娘就是来子山东的王梦洁。在整个球队中，球员们的身高动不动就是一米九以上的，作为一个小个子的她也是在球队中显得十分出众。但是她的实力却是十分强悍的，而且她打的还是自由人的位置，所以说只要技术过硬，身高也是没有问题的。在她二十岁的时候也是被招到了国家队中去，在那一年的女排世界杯中也是跟随中国女排拿刀了世界杯的总冠军，当时她在自由人的位置上边还并不是主力球员，当时还是林莉在担任着自由人的主力，所有虽然说王梦洁不断的再展现自己的优秀变现，但是在16年的里约奥运会上边，她也是没有能够参加
+			在中国这么多的体育运动中，中国女排现在也是深受大家的喜欢。女排姑娘们不仅仅是实力强悍，而且其中也是有着颜值很高的球员们的。但是在女排中也是有一位身高只有1米74的姑娘，这位姑娘就是来子山东的王梦洁。在整个球队中，球员们的身高动不动就是一米九以上的，作为一个小个子的她也是在球队中显得十分出众。但是她的实力却是十分强悍的，而且她打的还是自由人的位置，所以说只要技术过硬，身高也是没有问题的。在她二十岁的时候也是被招到了国家队中去，在那一年的女排世界杯中也是跟随中国女排拿刀了世界杯的总冠军，当时她在自由人的位置上边还并不是主力球员，当时还是林莉在担任着自由人的主力，所有虽然说王梦洁不断的再展现自己的优秀变现，但是在16年的里约奥运会上边，她也是没有能够参加
+		在中国这么多的体育运动中，中国女排现在也是深受大家的喜欢。女排姑娘们不仅仅是实力强悍，而且其中也是有着颜值很高的球员们的。但是在女排中也是有一位身高只有1米74的姑娘，这位姑娘就是来子山东的王梦洁。在整个球队中，球员们的身高动不动就是一米九以上的，作为一个小个子的她也是在球队中显得十分出众。但是她的实力却是十分强悍的，而且她打的还是自由人的位置，所以说只要技术过硬，身高也是没有问题的。在她二十岁的时候也是被招到了国家队中去，在那一年的女排世界杯中也是跟随中国女排拿刀了世界杯的总冠军，当时她在自由人的位置上边还并不是主力球员，当时还是林莉在担任着自由人的主力，所有虽然说王梦洁不断的再展现自己的优秀变现，但是在16年的里约奥运会上边，她也是没有能够参加</div>
+
+			</div>
+
+</body>
+<script type="text/javascript">
+	
+	var oDiv1 =document.getElementById('div1');
+	var oDiv2 =document.getElementById('div2');
+	var oDiv3 =document.getElementById('div3');
+	var oParent =document.getElementById('parent');
+
+	var disX = 0;
+
+	oDiv1.onmousedown=function(ev){
+
+		var oEvent = ev|| event;
+		disX = oEvent.clientX - oDiv1.offsetLeft;
+
+		document.onmousemove= function(ev){
+			var oEvent = ev||event;
+			var l = oEvent.clientX - disX;   //l 是鼠标横向位置 - 鼠标与左边框距离  = div1的 offsetLeft
+
+			if (l<0) {l=0;}
+			else if (l>oParent.offsetWidth - oDiv1.offsetWidth) {l = oParent.offsetWidth - oDiv1.offsetWidth;}
+
+			oDiv1.style.left = l +'px';
+			var scale = l/(oParent.offsetWidth-oDiv1.offsetWidth); //求 offsetLeft 与 整个parentdiv（除去div）的比 == 滚动的距离/整个长度
+			document.title=scale;
+
+			oDiv3.style.top = - scale*(oDiv3.offsetHeight - oDiv2.offsetHeight)+'px'; //滚动条滚动的比率即为div3滚动比率， 但要减去-个滚动框本身高度， 否则会出现空白
+		}
+
+		document.onmouseup=function(){
+			document.onmousemove = null;
+			document.onmouseup=null;
+		}
+		return false;
+	}
+
+
+
+
+
+</script>
+</html>

@@ -1,0 +1,40 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<!--ul 与li 互为子父节点  child parent node, 子节点 childNodes和children都只算第一层子节点-->
+	<ul id="ul1">文本节点aaa
+		
+		<li>adsad<a href="javascript: ">隐藏</a></li>
+		<li>xfsfad<a href="javascript: ">隐藏</a></li>
+		<li>44531<a href="javascript: ">隐藏</a></li>
+		<li>sfds321<a href="javascript: ">隐藏</a></li>   
+		<li>3532<a href="javascript: ">隐藏</a></li>
+文本节点bbbb
+	</ul>
+
+
+</body>
+
+<script type="text/javascript">
+	var oUl = document.getElementById('ul1');
+
+	//alert (oUl.parentNode);
+
+ var aAtag =document.getElementsByTagName('a');
+
+ for (var i = 0; i < aAtag.length; i++) {
+ 	
+ 	aAtag[i].onclick=function(){
+ 		this.parentNode.style.display='none';  //因为a代表超链接，所有隐藏的并不是a 而是他的parentNode
+ 	}
+ }
+
+
+
+
+</script>
+</html>

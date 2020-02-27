@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>数码时钟</title>
+<meta charset="utf-8">
+<style type="text/css">
+
+
+img{
+	width: auto;
+	height: 100px;
+	padding-top: 40px;
+}
+
+.date_container{
+	font-size: 100px;
+	margin: 200px auto;
+	text-align: center;
+
+}
+
+
+
+
+</style>
+</head>
+
+
+<body>
+
+
+
+
+
+<div class="date_container">
+
+
+ <img src="0.jpg">
+ <img src="0.jpg">
+ :
+ <img src="0.jpg">
+ <img src="0.jpg">
+ :
+ <img src="0.jpg">
+ <img src="0.jpg">
+</div>
+
+</body>
+
+
+
+<script type="text/javascript">
+
+    //此函数有两个目的，  补0 + 转换为字符串
+	function time(n){            //为单数时间进行补0，返回字符串
+
+		if (n<10){
+			return '0'+n;
+		}else{
+			return ''+n;         //设置空字符串因为 要返回的是字符串
+		}
+
+
+	}
+
+
+	///////////////////////////
+	
+	var aImg = document.getElementsByTagName('img');
+
+	//var str='192321' ; //建立一个字符串  用数字代表图片名从 0.jpg到9.jpg    第0个图片代表第0个文字
+
+	setInterval(function(){ //最后设置定时器，将所有函数包含起来，设定每1秒钟刷新
+
+
+	var oDate = new Date();
+
+	//var str=oDate.getHours()+oDate.getMinutes()+oDate.getSeconds();  不能直接加，因为会进行加法，不是拼接字符串
+
+	var str1 = time(oDate.getHours())+ time(oDate.getMinutes())+ time(oDate.getSeconds()); //调用时间转换字符串的函数
+	//alert(str);  测试是否为现在时间
+
+
+	for (var i = 0; i < aImg.length; i++){  //遍历所有图片 ， 。
+
+		aImg[i].src = str1.charAt(i)+'.jpg'; //将第几位的图片的src ， 改为 与str中对应的数字 ， 找到其图片
+	}
+												//str【i】为新浏览器，但考虑到到老浏览器 字符串兼容问题，用charAt
+}, 0);
+
+
+
+</script>
+</html>

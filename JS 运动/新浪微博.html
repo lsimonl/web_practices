@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script src="perfectmove.js"></script>
+</head>
+<style type="text/css">
+	*{
+		margin:0;
+		padding: 0;
+	}
+
+	#ul1{
+		width: 400px;
+		height: 400px;
+		border: 1px solid black; 
+		margin:10px auto;
+		overflow: hidden;
+
+		
+	}
+
+	#ul1 li{
+		border-bottom: 1px #999 dashed;
+		 padding: 4px; 
+		 list-style: none;
+		 overflow: hidden;
+		/* opacity: 0;
+		 filter: alpha(opacity:30);*/
+		 
+	}
+</style>
+<body>
+	<textarea id="txt1" rows='4' cols="40"></textarea>
+	<input type="button" name="" id="btn1" value="发布">
+	<ul id="ul1"></ul>
+
+</body>
+<script type="text/javascript">
+	var oBtn = document.getElementById('btn1');
+	var oUl = document.getElementById('ul1');
+	var otxt = document.getElementById('txt1');
+
+	oBtn.onclick=function(){
+		var oli = document.createElement('li');//创建新的li
+		oli.innerHTML=otxt.value;
+		otxt.value='';//重置
+
+		if (oUl.children.length>0) {
+			oUl.insertBefore(oli,oUl.children[0]);
+		}
+		else{
+			oUl.appendChild(oli);
+		}
+		////运动
+
+		var iHeight = oli.offsetHeight;
+		oli.style.height='0';
+
+		move(oli,{height: iHeight}/*,function(){
+			move(oli,{opacity:100});
+		}*/
+		)
+	}
+</script>
+</html>

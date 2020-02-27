@@ -1,0 +1,21 @@
+
+
+	class App extends Component{
+		render(){
+			return(
+				<List fruit='kiwi' veg='kale'/>
+				)
+		}
+	}
+
+	class List extends Component{
+		render(){
+			return(
+				<ul>
+				<li>{this.props.veg}</li>
+				<li>{this.props.fruit}</li>
+				</ul>
+				)
+		}
+	}
+

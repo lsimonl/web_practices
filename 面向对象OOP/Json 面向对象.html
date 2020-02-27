@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+</body>
+<script type="text/javascript">
+	
+	var json ={         //json 每一个隔开用逗号，
+		name : 'simon',   //；类属性
+		qq: '112021004',
+
+		showName : function(){
+			alert('my name is '+this.name);//this 是指对象的this， 此处是json
+											//类方法
+		},
+		showQQ: function(){
+			alert('my qq is '+ this.qq)
+		},
+	}
+
+	json.showName();
+	json.showQQ();
+	//json 面向对象只适用于有一个对象的程序
+</script>
+</html>

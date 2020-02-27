@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>onmouseover/out /click JS事件1</title>
+	<link rel="stylesheet" type="text/css" href="">
+	
+	<style type="text/css">
+		
+		#div1{
+			background-color: grey ;
+			width: 100px;
+			height: auto;
+			display: none;
+		}
+
+		#div2{
+			background-color: red;
+			width: 200px;
+			height: 200px;
+		}
+	</style>
+</head>
+<!-- div1.style.display    .可以认为是的， div1的style的display 是 block   -->
+
+<body>
+
+<form>                                                         <!-- 要用 document。getelement， 否则不兼容   -->
+	<input type="checkbox" name="reminder"
+	 onmouseover="document.getElementById('div1').style.display='block';"  
+	 onmouseout="document.getElementById ('div1').style.display='none';"/> 是否记住密码    
+	<div id="div1">请注意登录安全</div>
+	
+	<button onclick="alert('hellojs')">这是一个按钮</button>
+</form>
+
+  <div id="div2" onmouseover="togreen()"  onmouseout="tored()"> </div>      <!--  事件event 引用函数function   -->
+
+<script type="text/javascript">
+
+ var div2 =document.getElementById('div2');
+
+  function togreen(){  
+  	div2.style.background='green';
+  	div2.style.width='400px';
+  	div2.style.height='400px';
+  }
+  function tored(){  
+  	div2.style.background='red';
+  	div2.style.width='200px';
+  	div2.style.height='200px';
+
+  }
+
+</script>
+
+</body>
+</html>

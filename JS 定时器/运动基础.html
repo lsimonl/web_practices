@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+
+	<style type="text/css">
+		
+		#div1{
+			width: 100px;
+			height: 100px;
+			background-color: red;
+			position: absolute; /* 要移动的东西position 必须为absoulate*/
+			left: 50px;  
+			top: 100px;
+			 /* 此处可知 left 与 margin-left并不一样*/
+
+			/* left是为了移动，必须设置position， margin指的是 外边距*/
+		}
+	</style>
+</head>
+<body>
+
+	<div id="div1"></div>
+
+</body>
+
+<script type="text/javascript">
+	var oDiv1 =document.getElementById('div1');
+		
+	setInterval(function(){
+		var oDiv1 =document.getElementById('div1');
+		                    //offsetLeft 为距离最左侧的长度， 包括 left和 margin-left. 还有offsettop， offsetheight，offsetwidth 
+
+		alert(oDiv1.offsetLeft);         
+		alert(oDiv1.style.left);
+
+		oDiv1.style.left=oDiv1.offsetLeft + 10+ 'px'; //给odiv1的 style left 属性赋值， 在offestleft的基础上， 每三十毫秒增加 10px，
+
+	},30)
+
+
+	
+
+
+
+
+
+
+</script>
+</html>

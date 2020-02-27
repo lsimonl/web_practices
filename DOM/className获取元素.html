@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>className</title>
+</head>
+
+
+
+<body>
+	<ul id="ul1">
+		<li class="box"></li>
+		<li></li>
+		<li></li>
+		<li class="box"></li>
+		<li class="box"></li>
+		<li></li>
+		<li></li>
+
+
+	</ul>
+
+</body>
+
+<script type="text/javascript">
+
+	/*
+	var oUl= document.getElementById('ul1');
+	var aLi= oUl.getElementsByTagName('li');
+
+	for (var i =0; i<aLi.length; i++){
+		if (aLi[i].className =='box') {
+			aLi[i].style.background='red';
+		}
+	} */
+
+	function selectClass(oParent,sClass){          //目的：选取相关元素     因为大部分情况不会在document中选元素，而是在他的父集上面
+		var aElement = oParent.getElementsByTagName('*') ;//* 代表通用符号，代表所有标签
+		var aResult=[];
+                         //放一个空的数组，将指定className的元素 都存在里面
+
+
+		for (var i =0; i<aElement.length; i++){
+		if (aElement[i].className == sClass) {
+			aResult.push(aElement[i]);  //存进空数组
+
+		}
+		return aResult;              //返回数组
+	}
+
+	window.onload+function(){
+
+	var oUl= document.getElementById('ul1'); //先选出oParent,
+	var aBox =selectClass(oUl,'box'); //根据上面函数， 里面参数分别是：父级变量和className、
+
+	for(var i=0; i<aBox.length;i++){
+		aBox[i]['style']['background']='red';
+	}
+ 
+
+	}
+}
+
+</script>
+</html>

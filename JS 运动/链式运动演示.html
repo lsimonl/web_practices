@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset="utf-8">
+	<script type="text/javascript" src="move.js"></script>
+
+	<style type="text/css">
+
+	#div1{
+		width: 100px;
+		height: 100px;
+		background-color: red;
+	}
+	</style>
+
+</head>
+
+<body>
+	<div id="div1"></div>
+
+</body>
+<script type="text/javascript">
+	
+	oDiv= document.getElementById('div1');
+
+	oDiv.onmouseover= function(){
+		move(oDiv,'width',300, function(){
+			move(oDiv,'height',300);          //此处不能用this 会报错
+		})
+
+	}
+
+	oDiv.onmouseout= function(){
+		move(oDiv,'height',100,function(){
+			move(oDiv,'width',100);
+		})
+	}
+	
+
+
+</script>
+
+</html>

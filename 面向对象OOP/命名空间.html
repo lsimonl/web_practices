@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+
+</body>
+<script type="text/javascript">
+	
+	var zns={};
+
+	zns.common1={};
+	zns.common2={}; //创立分空间
+	zns.common3={};
+
+	zns.common1.getUser=function(){ //创立分空间的 getUser方法, 这样不同空间的相同函数名不会覆盖彼此
+		alert('a');
+	}
+	zns.common2.getUser=function(){
+		alert('b');
+	}
+	zns.common3.getUser=function(){
+		alert('c');
+	}
+
+	zns.common1.getUser();
+	zns.common2.getUser();
+	zns.common3.getUser();
+</script>
+</html>

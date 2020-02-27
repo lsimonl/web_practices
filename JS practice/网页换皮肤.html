@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>change skin</title>
+	<link rel="stylesheet" type="text/css" href="skin1.css" id="link">
+	<style type="text/css">
+		
+
+		.mainlist{
+			display:inline-block;
+			position: relative;
+
+		}
+		.sublist{
+			display: none;
+			background-color: grey;
+			width: 100px;
+			position: absolute;
+
+		}
+
+	</style>
+</head>
+
+
+<body>
+<input type="button" value="皮肤一" onclick="toskin1()"   />
+<input type="button" value="皮肤二"   onclick="toskin2()" />
+
+<p>分割线</p> </br>
+
+<form>
+	<input type="text" id="text"  />
+
+	<input type="button" id="button" value="改文字" onclick="set()"  onmouseover="showtitle()" />
+</form>
+
+<ul>
+	<li class="mainlist" onclick="showhide()">主列表A
+		<ul>
+			<li id='sublist'>辅列表A1</li>
+	</ul>
+	
+	</li>
+</ul>
+
+</body>
+<script type="text/javascript">
+   var text= document.getElementById('text');
+   var button=document.getElementById('button');
+
+    function showtitle(){
+    	button.title='快点我快点我';
+    }
+    
+    function set(){
+		text.value='点一下按钮我会出来';
+    }
+
+///////////////////////////////////////////////////
+	var skin = document.getElementById('link');
+
+	function toskin1(){
+		skin.href='skin1.css';
+	}                                              //该皮肤实际上是   改头中引用的href
+
+	function toskin2(){                        //改链接可直接  用 变量。href的形式
+		skin.href='skin2.css';
+	}
+
+	/////////////////////////////
+	
+
+	function showhide(){
+		var sublist= document.getElementById('sublist');
+
+		if(sublist.style.display == 'block') {
+			sublist.style.display='none';
+		}else{
+			sublist.style.display='block';
+		}
+
+	}
+</script>
+</html>

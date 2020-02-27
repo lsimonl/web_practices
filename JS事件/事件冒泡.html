@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+
+<style type="text/css">
+	div{
+		width: 200px;
+		height: 200px;
+		background-color: grey;
+		display: none;
+	}
+</style>
+</head>
+<body>
+	<input type="button" name="" id="btn1" value="点我">
+	<div id="div1"></div>
+
+</body>
+<script type="text/javascript">
+	
+	var oBtn = document.getElementById('btn1');
+	var oDiv = document.getElementById('div1');
+
+	oBtn.onclick=function(ev){
+
+		var oEvent = ev || event;
+		oDiv.style.display='block';
+
+		oEvent.cancelBubble=true; //事件冒泡的触发为向父级，以及父级的父级，用cancelBubble取消冒泡
+	}
+
+	//点别处取消
+	document.onclick=function(){
+		oDiv.style.display='none';
+	}
+</script>
+</html>

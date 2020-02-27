@@ -1,0 +1,45 @@
+<script type="text/javascript">
+	
+
+	//json 本身为关联性数组 为键值对格式，像python中的字典， 用于便捷存储数据。
+
+ //var a = 5; 
+// var b = 11;
+ //var c = 'ccc';
+
+
+ var array = [0,1,4,6];
+
+var json = {
+	a: 5,
+	b: 11,
+	c: 'ccc'
+}
+/*
+json.b +=1;
+
+
+alert(json.a);
+alert(json.b);
+
+//alert(array[0]);
+alert(json['c']);  // 数组会 alert（jason【0】），其实是关联性数组与索引型数组的不同
+
+*/
+for (var i = 0; i <array.length; i++){
+	alert('第'+i+'位是'+array[i]);
+}
+
+for (var i in array){
+	alert(array[i]);   //遍历数组的两种方法 建议用length的方法。
+
+}
+
+for (var i in json){
+	alert(json[i]);      // 遍历json  只能用 for in 循环，因为json没有length， 循环结果是 值。 
+}
+
+
+
+
+</script>

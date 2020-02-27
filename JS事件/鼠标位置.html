@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+</body>
+<script type="text/javascript">
+	
+	document.onclick=function(ev){  //document为整个HTML文件， 点击任何地方触发事件
+
+		var oEvent = ev || event ;  //ev 或 event ， event为内置函数火狐不认 ,所以为了兼容 设置一个变量
+		alert(oEvent.clientX +','+ oEvent.clientY);
+	}
+</script>
+</html>

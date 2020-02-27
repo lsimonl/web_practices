@@ -1,0 +1,63 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<!--ul 与li 互为子父节点  child parent node, 子节点 childNodes和children都只算第一层子节点-->
+	<ul id="ul1">文本节点aaa
+		
+		<li>A
+			<span>A1</span>
+		</li>
+		<li></li>
+		<li></li>
+		<li></li>   
+		<li></li>
+文本节点bbbb
+	</ul>
+
+
+</body>
+
+<script type="text/javascript">
+	var oUl = document.getElementById('ul1');
+
+	alert(oUl.childNodes.length)  //childNodes为子节点， 类型为数组，  数组的长度就是子节点数量
+								 //子节点数量并不是标签数，而是一对 》《 里面的东西，可为空，  分为文本节点，和元素节点
+								 //IE 6-8 显示元素节点
+
+/*
+for (var i =0 ; i<oUl.childNodes.length; i++){
+	//oUl.childNodes[i].style.background ='red';               //文本节点不会显示样式
+
+
+	//alert(oUl.childNodes[i].nodeType);  // nodeType == 3 为文本节点  nodeType==1 为元素节点
+
+	if (oUl.childNodes[i].nodeType ==3 ) {
+		continue;
+	}else{
+		oUl.childNodes[i].style.background='red'; //此方法兼容所有浏览器 用childNodes和nodeType 配合循环 ，流程控制
+	}
+
+*/
+
+	alert(oUl.children.length);
+	for (var i =0 ; i<oUl.children.length; i++){  //相比于childNodes ， children 只取得 元素节点
+		oUl.children[i].style.background='green';
+
+
+	}
+
+
+
+
+
+
+
+
+
+
+</script>
+</html>

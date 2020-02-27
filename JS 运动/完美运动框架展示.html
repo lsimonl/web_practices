@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+
+	<style type="text/css">
+		#div1{
+			width: 100px;
+			height: 100px;
+			background-color: red;
+		}
+	</style>
+	<script src='perfectmove.js'></script>
+</head>
+<body>
+	<input type="button" name="" id="btn1" value="运动吧">
+	<div id="div1"></div>
+
+</body>
+<script type="text/javascript">
+	
+	var oBtn = document.getElementById('btn1');
+	var odiv =document.getElementById('div1');
+
+	oBtn.onclick=function(){
+		move(odiv,{width:101 ,height: 300}, function(){
+			move(odiv,{height:600});
+		}); //以json的形式写入， 循环
+
+	}
+</script>
+</html>

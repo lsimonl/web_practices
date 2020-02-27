@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+
+	<style type="text/css">
+		#tab{
+			width: 300px;
+			height: 550px;
+			background-color: lightgrey;
+			margin: 40px auto;
+
+		}
+
+		div ul{
+			
+			padding-top: 18px;
+			
+			
+		}
+
+		div ul li{
+			display: inline-block;
+			width: 60px;
+			height: 95px;     
+			color: white;                
+			margin: 5px 5px;
+			background-color: black;
+			text-align: center;
+
+		}
+
+
+		.text{
+			text-align: center;
+			background-color: white;
+			color: black;
+			margin: 0 auto;
+			width: 260px;
+		}
+		
+		.active{
+			background-color: white;
+			color: red;
+		}
+
+
+	</style>
+</head>
+
+	
+
+
+<body>
+
+<div id="tab" class="calendar">
+	<ul>
+		<li class="active"><h2>1</h2><p>JAN</p></li>
+		<li><h2>2</h2><p>FEB</p></li>
+		<li><h2>3</h2><p>MAR</p></li>
+		<li><h2>4</h2><p>APR</p></li>
+		<li><h2>5</h2><p>MAY</p></li>
+		<li><h2>6</h2><p>JUN</p></li>
+		<li><h2>7</h2><p>JUL</p></li>
+		<li><h2>8</h2><p>AUG</p></li>
+		<li><h2>9</h2><p>SEP</p></li>
+		<li><h2>10</h2><p>OCT</p></li>
+		<li><h2>11</h2><p>NOV</p></li>
+		<li><h2>12</h2><p>DEC</p></li>
+		
+	</ul>
+
+		<div class="text">
+			<h2>1月活动</h2>
+			<p>内容1</p>
+		</div>
+
+</div>
+
+
+
+
+</body>
+
+<script type="text/javascript">
+	var array=['内容1','二月我们要干什么','三月。。。','4月',5,6,7,8,9,10,11,12]; //建立一个内容的数组，用于调用内容。
+	var divs= document.getElementById('tab');
+	var lists= divs.getElementsByTagName('li');
+	var text=divs.getElementsByTagName('div')[0]; //数组中的第一个
+
+	for (var i=0; i<lists.length; i++){
+
+		lists[i].index=i;                               //关键点 设立一个属性index， 然后用字符串拼接的方式，更改text的innerHTML
+		lists[i].onmouseover=function(){
+
+			for (var i=0; i<lists.length; i++){
+
+				lists[i].className='none';            //重复引发事件时 初始化。 
+			}
+
+
+
+			this.className='active';
+
+			text.innerHTML="<h2>" +(this.index+1)+ '月活动</h2><p>'+array[this.index]+'</p>';
+		}
+
+
+	
+
+
+
+	}
+
+
+</script>
+</html>

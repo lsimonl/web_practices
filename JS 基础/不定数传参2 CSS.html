@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+
+
+<body>
+
+	<div id="div1" style="height: 200px;width: 250px;background-color: red; ">aaaaaaaaaaaaaaaa</div>
+
+</body>
+<script type="text/javascript">
+///////////////////////////////////////////////////////////////
+
+ // CSS 查询样式格式 object style【样式名】                  两个参数
+ // CSS 设置样式格式 object style【样式名】 = ‘样式值’        三个参数
+
+ function css(){
+
+ 	              //for (i=0; i<arguments.length; i++){  此处不需要循环列表，因为arguments自带 length属性
+
+ 	if (arguments.length == 2) {
+
+
+ 		return(arguments[0].style[arguments[1]])
+ 	}
+ 	else {                          //三个arguments的情况
+ 		arguments[0].style[arguments[1]]=arguments[2];
+ 	}
+
+}
+ 
+
+ var oDiv = document.getElementById('div1');
+
+	//alert(css(oDiv,'height'));
+ 	//css(oDiv,'background','green');
+
+/////////////////////////////////简化为
+
+ function css2(object, styleName, styleValue){
+
+ 	              //for (i=0; i<arguments.length; i++){  此处不需要循环列表，因为arguments自带 length属性
+
+ 	if (arguments.length == 2) {
+
+
+ 		return(object.style[styleName]);
+ 	}
+ 	else {                                     //因为在函数中已经设置参数， 所以此处调用是不需要 用字符串
+ 		object.style[styleName]=styleValue;
+ 	}
+
+}
+ 
+
+ var oDiv = document.getElementById('div1');
+
+	alert(css2(oDiv,'width'));
+ 	css2(oDiv,'background','yellow');
+ 	css2(oDiv,'color','red');
+ 	
+
+
+
+
+
+</script>
+</html>
+

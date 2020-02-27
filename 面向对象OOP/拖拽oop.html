@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+		
+		#div1{
+			width: 200px;
+			height: 200px;
+			background-color: red;
+			position: absolute;
+		}
+	</style>
+</head>
+<body>
+<div id="div1"></div>
+</body>
+<script type="text/javascript">
+
+	var oDiv =null;
+		
+
+
+		function Drag(id){
+
+		var _this = this;
+		var disX=0;
+		var disY=0; 
+		this.oDiv = document.getElementById(id); //用this自动产生一个odiv的对象， 来自于id
+
+		this.oDiv.onmousedown=function(ev){
+			_this.fnDown(ev);
+
+		}
+
+		Drag.prototype.fnDown=function(ev){
+			var oEvent = ev||event;
+			var _this =this;
+			this.disX= oEvent.clientX - this.oDiv.offsetLeft;
+			this.disY= oEvent.clientY - this.oDiv.offsetTop;
+
+			document.onmousemove=function(ev){
+				_this.fnMove(ev);
+			}
+			document.onmouseup=function(){
+				this.fnUp();
+			}
+		}
+
+		Drag.prototype.fnMove=function(ev){
+				var oEvent = ev||event;
+				this.oDiv.style.left = oEvent.clientX - this.disX + 'px';
+				this.oDiv.style.top = oEvent.clientY - this.disY + 'px';
+
+			}
+
+		Drag.prototype.fnUp=function(){
+
+				document.onmousemove=null;
+				document.onmouseup=null;
+			}
+		}
+	
+</script>
+</html>

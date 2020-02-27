@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+
+
+<body>
+<ul id="ul1"></ul>
+
+</body>
+<script type="text/javascript">
+	var oUl = document.getElementById('ul1');
+
+	var oFragment = document.createDocumentFragment();  //创立文档碎片
+
+
+	for (var i=0; i<10000; i++){   //设立极端情况 10000个循环， 先把10000个li存放进文档碎片， 再加进ul里
+
+		var oLi =document.createElement('li');
+		oFragment.appendChild(oLi);
+	}
+
+	oUl.appendChild(oFragment);
+
+
+
+
+
+</script>
+</html>

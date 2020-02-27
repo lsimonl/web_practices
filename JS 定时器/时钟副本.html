@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>数码时钟</title>
+<meta charset="utf-8">
+<style type="text/css">
+
+
+img{
+	width: auto;
+	height: 70px;
+	padding-top: 40px;
+}
+
+.date_container{
+	font-size: 70px;
+	margin: 100px auto;
+	text-align: center;
+	background-color: white;
+
+}
+
+</style>
+</head>
+
+
+<body>
+
+<div class="date_container">
+ 超级时钟 </br>
+ <img src="0.jpg">
+ <img src="0.jpg">
+ <img src="0.jpg">
+ <img src="0.jpg">
+ 年
+ <img src="0.jpg">
+ <img src="0.jpg">
+ 月
+ <img src="0.jpg">
+ <img src="0.jpg">
+ 日
+</br>
+ <img src="0.jpg">
+ <img src="0.jpg">
+ :
+ <img src="0.jpg">
+ <img src="0.jpg">
+ :
+ <img src="0.jpg">
+ <img src="0.jpg">
+</div>
+
+</body>
+
+
+
+<script type="text/javascript"> //本练习思路， 把整个时间（年月日时分秒）考虑成为一个字符串。  遍历图片时，更改图片路径，图片的每一位 对应字符串中的每一位。
+
+    //此函数有两个目的，  补0 + 转换为字符串
+	function time(n){            //为单数时间进行补0，返回字符串
+
+		if (n<10){
+			return '0'+n;
+		}else{
+			return ''+n;         //设置空字符串因为 要返回的是字符串
+		}
+
+
+	}
+
+
+	///////////////////////////
+	
+	var aImg = document.getElementsByTagName('img');
+
+	setInterval(function(){ 
+
+	var oDate = new Date();
+	
+	var str1 =  time(oDate.getFullYear())+ time(oDate.getMonth()+1)+ time(oDate.getDate())+time(oDate.getHours())+ time(oDate.getMinutes())+ time(oDate.getSeconds()); 
+
+	//代表年月日时分秒的超级字符串 这个字符串将用作 改变 img的 src熟悉
+		
+		for (var i = 0; i < aImg.length; i++){  
+
+		aImg[i].src = str1.charAt(i)+'.jpg';  //修改html所选取的图片（路径），与字符串对应。
+	}
+												
+}, 0);
+
+
+
+</script>
+</html>

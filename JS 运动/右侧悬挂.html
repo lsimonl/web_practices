@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+
+<style type="text/css">
+	*{
+		padding: 0;
+		margin: 0;
+	}
+	
+	body{
+		height: 2000px;
+	}
+
+	#div1{
+		width: 100px;
+		height: 200px;
+		background-color: red;
+		position: absolute;
+		right: 0;
+		bottom: 0;
+	}
+</style>
+</head>
+<body>
+	<div id="div1"></div>
+
+</body>
+<script type="text/javascript">
+	window.onscroll = function(){   //window.onscroll为触发事件，当界面滚动时
+
+		var oDiv = document.getElementById('div1');
+		var scroll = document.documentElement.scrollTop || document.body.scrollTop;//设置变量+兼容性
+																						//offsetHeight是的odiv高度
+		//oDiv.style.top=((document.documentElement.clientHeight - oDiv.offsetHeight)/2 + scroll);  //调试，odiv的top应该为 （界面可见高度-odiv的offsetHeight ）/2， 因为不除二 是上下边距
+
+		move((parseInt(document.documentElement.clientHeight - oDiv.offsetHeight)/2 + scroll));
+	}
+
+	var timer = null;
+	function move(itarget){
+		var oDiv=document.getElementById('div1');
+		clearInterval(timer);
+
+		timer=setInterval(function(){
+
+			var speed = (itarget-oDiv.offsetTop)/4;
+			speed=speed>0?Math.ceil(speed):Math.floor(speed);  //缓冲运动速度必须取整数
+			if (oDiv.offsetTop==itarget) {
+				clearInterval(timer);
+			}
+			else{
+				oDiv.style.top=oDiv.offsetTop+speed+'px';
+			}
+
+
+
+
+		},30)
+	}
+
+
+</script>
+</html>

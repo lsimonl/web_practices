@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+
+		*{
+			margin:0;
+			padding: 0; /*初始化*/
+		}
+		
+		img{
+			height: 200px;
+			width: 150px;
+		}
+
+		#div1{              
+			width:600px;
+			height: 200px;
+			margin:100px auto;          /*注意 外边的父div 必须有固定的height 和 width， 否则overflow：hidden将不会成功 ，
+			                              具体宽与高可根据图片大小求和*/ 
+			position: relative;
+			/*background-color: red;*/ 
+			overflow: hidden;
+			
+		}
+	
+		#div1 ul{
+			position: absolute; /*因为每次移动的是 整个ul 所以在ul里面加入 position absolute*/
+			left: 0;
+			top: 0;
+		}
+
+
+		#div1 ul li{
+			list-style: none;
+			float: left;
+
+		}
+
+	</style>
+</head>
+
+
+
+<body>
+	<a href="javascript: ">向左走</a>  
+	<a href="javascript: ">向右走</a>   <!--设置假的 超链接 -->
+	<div id="div1">
+
+		<ul>
+		
+			<li><img src="1.jpg"></li>
+			<li><img src="2.jpg"></li>
+			<li><img src="3.jpg"></li>
+			<li><img src="4.jpg"></li>
+			
+
+		</ul>
+	
+	</div>
+
+</body>
+
+
+<script type="text/javascript">
+	 
+	 var oDiv1 =document.getElementById('div1');
+	 var oUl= oDiv1.getElementsByTagName('ul')[0];
+	 var aLi = oUl.getElementsByTagName('li');
+	 var speed = 2 ;  //建立速度变量，正数向右，负数向左，点击按钮时更改speed即可控制方向
+
+	oUl.innerHTML = oUl.innerHTML + oUl.innerHTML;
+
+	oUl.style.width = aLi[0].offsetWidth * aLi.length +'px';
+
+
+
+	function move(){
+
+		if (oUl.offsetLeft < - oUl.offsetWidth/2) {
+			oUl.style.left='0';                        //向左滚动 if 语句s
+		}
+
+
+		if (oUl.offsetLeft > 0) {           //当ul开始滚动时，距离左边父元素为0， 只有滚动到了一半的时候，才会大于0，这时拉回, 将style。left的值为 负数的 整体宽度的一半 px （继续向右滚动后会从负数接近0,大于0时再拉回）
+			oUl.style.left = - oUl.offsetWidth/2 + 'px'; //只要是 style。width ， style。left 后面必须加入 ‘px’
+
+		}
+		oUl.style.left = oUl.offsetLeft+ speed+'px'; //实际控制滚动速度与方向行
+
+		}
+
+
+	var timer = setInterval(move,30); //设置定时器， 重复调用函数
+
+	oDiv1.onmouseover= function(){    // 鼠标在div上面时，关闭定时器，关闭滚动
+		clearInterval(timer);
+	}
+
+	oDiv1.onmouseout=function(){            //鼠标再移开div时 ， 重新调用函数，开启定时器
+		timer=setInterval(move,30);
+	}
+
+   
+	document.getElementsByTagName('a')[0].onclick = function(){   //省略了之前 var oA1= document.getelementsby .... ;    oA1.onclick=
+		speed = -2 ;
+	}
+
+	document.getElementsByTagName('a')[1].onclick = function(){
+		speed = 2 ;
+	}
+
+
+
+
+
+
+
+</script>
+</html>

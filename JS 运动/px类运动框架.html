@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+
+<style type="text/css">
+	div{
+		width: 150px;
+		height: 150px;
+		background-color: red;
+		padding: 20px;
+		margin: 20px;
+		float: left;
+		border: 10px solid black;
+	}
+</style>
+</head>
+<body>
+	<div id="div1">变宽</div>
+	<div id="div2">变高</div>
+	<div id="div3">字变大</div>
+	
+
+</body>
+
+<script type="text/javascript">
+	var oDiv1 = document.getElementById('div1');
+	var oDiv2 = document.getElementById('div2');
+	var oDiv3 = document.getElementById('div3');
+	
+	oDiv1.onmouseover=function(){
+		move(this,'width',400);
+	}
+
+	oDiv1.onmouseout=function(){
+		move(this,'width',150);
+	}
+
+	oDiv2.onmouseover=function(){
+		move(this,'height',400);
+	}
+
+	oDiv2.onmouseout=function(){
+		move(this,'height',150);
+	}
+
+	oDiv3.onmouseover=function(){
+		move(this,'fontSize',30);
+	}
+
+	oDiv3.onmouseout=function(){
+		move(this,'fontSize',15);
+	}
+
+
+
+//下面为 获取样式值的函数
+	function getStyle(obj,name){
+
+		if(obj.currentStyle){
+			return obj.currentStyle[name];
+		}
+		else{
+			//alert(getComputedStyle(obj, false)[name]); 测试
+			return getComputedStyle(obj, false)[name]; // 此处返回 样式值
+		}
+	}
+ // getStyle(div1,'width'); 测试
+
+ //下面为运动函数
+ 	function move(obj, attr,itarget){
+ 		clearInterval(obj.timer);
+
+ 		obj.timer=setInterval( function(){
+ 			 var current = parseInt(getStyle(obj, attr)); //取得现在样式的值，调用getstyle函数，为了算速度
+
+ 			 var speed = (itarget-current)/6;
+ 			 speed=speed>0? Math.ceil(speed):Math.floor(speed);
+
+ 			 if (itarget==current) {
+ 			 	clearInterval(obj.timer);
+ 			 }
+ 			 else{
+ 			 	obj.style[attr]=current+speed+'px';
+ 			 }
+ 		},30)
+
+ 	}
+</script>
+</html>

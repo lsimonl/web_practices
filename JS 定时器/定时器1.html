@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<input type="button" name="" value="开启" id="but1">
+	<input type="button" name="" value="关闭" id="but2">
+</body>
+<script type="text/javascript">
+	
+	var but1 =document.getElementById('but1');
+	var but2 =document.getElementById('but2');
+	var timer = null;                         //建立 控制时间的变量，用于开启关闭定时器
+
+
+  but1.onclick=function(){
+	                         //使用两次匿名函数
+	timer=setInterval(function(){            
+		alert('a');                           // 
+	}, 1000)
+
+
+	}
+ 
+  but2.onclick=function(){
+
+  	clearInterval(timer);          //关闭定时器， 制定哪个为要关闭定时器
+
+
+
+  }
+
+
+//	setInterval( show , 1000); // 延时定时器 参数结构： 函数， 时间（毫秒）；此为每隔1000ms 调用一次 show 函数
+// clearInterval
+
+//setTimeout(show, 1000);//只执行一次    关闭：clearTimeout
+</script>
+</html>

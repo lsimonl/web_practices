@@ -1,0 +1,58 @@
+
+
+
+<script type="text/javascript">
+	
+//splice 的参数 ： 起点的位置， 长度
+	var a=[1,2,3,4,5,6];
+
+	a.splice(2,3);  //起点为第二位 3，长度为3  删除元素时
+
+	a.splice(2,0,'j','q','k'); //起点为第二位， 删除0个元素，并添加 第二位后添加相应元素
+
+
+	a.splice(2,2,'a','b'); //替换元素
+	//alert(a);
+
+////////////////////////////// concat拼接
+var b =[1,2,3];
+var c= [4,5,6];
+alert(b.concat(c));
+//alert(c.concat(b));
+
+/////////////////////// join 加入什么
+
+
+alert(b.join('^'));
+
+///////////////////////排序
+
+var Awords= ['float','array','height','paddings'];
+Awords.sort();
+alert(Awords);
+
+///////////////////// 数组数字排序
+
+var num =[12,5,3,44,23,99];
+//num.sort(); //把数字当做了字符串
+
+num.sort( function(n1,n2){   //原理是拿出两个数字 逐个进行排序, 此为升序，N2-N1为降序
+    
+    return n1-n2 ;
+   // return n2-n1 ;
+
+	/*
+	if (n1<n2){ return -1 ;}
+	else if (n1>n2) {return 1 ;}
+	else {return 0 ;}
+
+ */
+
+
+
+})
+
+
+
+alert(num);
+</script>

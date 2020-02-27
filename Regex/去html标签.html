@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<textarea id="txt1" rows="10" cols="40"></textarea>
+	<input type="button" name="" value='去标签' id="button">
+	<textarea id="txt2" rows="10" cols="40"></textarea>
+
+
+</body>
+<script type="text/javascript">
+	
+	var oTxt1 = document.getElementById('txt1');
+	var oTxt2 = document.getElementById('txt2');
+	var oBtn = document.getElementById('button');
+
+	oBtn.onclick=function(){
+
+		var re =/<[^<>]+>/g;
+
+		oTxt2.value = oTxt1.value.replace(re,'');
+	}
+</html>

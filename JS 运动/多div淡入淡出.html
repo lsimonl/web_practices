@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+<style type="text/css">
+	
+	div{
+		width: 200px;
+		height: 200px;
+		margin: 20px;
+		background-color: red;
+		opacity: 0.3;
+		filter: alpha(opacity:30);
+		float: left;
+	}
+</style>
+</head>
+<body>
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+</body>
+
+<script type="text/javascript">
+	var aDiv = document.getElementsByTagName('div');
+	for (var i=0; i<aDiv.length; i++){
+
+		aDiv[i].timer = null;
+		aDiv[i].alpha =30;        //多物体运动思想：各object不允许共享变量，不设置全局变量
+
+		aDiv[i].onmouseover=function(){
+			move(this, 100);
+		}
+
+		aDiv[i].onmouseout=function(){
+			move(this, 30);
+		}
+	}
+	function move(obj, itarget){
+		clearInterval(obj.timer);
+
+		obj.timer=setInterval(function(){
+
+			var speed = (itarget-obj.alpha)/6;
+			speed=speed>0? Math.ceil(speed):Math.floor(speed);
+
+			if (itarget == obj.alpha) {
+				clearInterval(obj.timer);
+
+			}
+			 else{
+			 	obj.alpha+=speed;  //新的透明度
+                                                //是obj的alpha ， 不要忘记参数obj
+			 	obj.style.filter='alpha(opacity:'+obj.alpha+')';
+			 	obj.style.opacity = obj.alpha/100;
+			 }
+
+		},30)
+
+
+	}
+
+
+
+</script>
+
+
+</html>

@@ -1,0 +1,48 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+</head>
+
+
+
+<body>
+	<ul>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+	</ul>
+
+</body>
+
+
+<script type="text/javascript">
+	
+	var aList = document.getElementsByTagName('li');  //拿到所有li
+
+		for(var i=0; i<aList.length; i++){           //遍历所有li的数组
+
+			if (i % 2== 0) {
+				aList[i].style.background='grey';        // i 其实代表的是位置， 索引型字符串的键值， 所有用i判断第几个。
+			}
+
+			else  {
+				aList[i].style.background='';
+			}
+		
+
+	
+
+
+
+	}
+
+</script>
+</html>

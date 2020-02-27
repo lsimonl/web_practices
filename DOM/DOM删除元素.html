@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+
+
+
+<body>
+	<ul id="ul1">
+		<li> 来删除我呀1 <a href="javascript: ;">删除他</a> </li>
+		<li> 来删除我呀2 <a href="javascript: ;">删除他</a> </li>
+		<li> 来删除我呀3 <a href="javascript: ;">删除他</a> </li>
+		<li> 来删除我呀4 <a href="javascript: ;">删除他</a> </li>
+		<li> 来删除我呀5 <a href="javascript: ;">删除他</a> </li>  <!--注意 li为a的父级-->
+	</ul>
+
+</body>
+
+<script type="text/javascript">  //父级。removeChild（子节点）从父级上删除子节点
+
+	var oUl= document.getElementById('ul1');
+	var aA = ul1.getElementsByTagName('a');
+
+	for (var i=0; i<aA.length ; i++){
+
+		aA[i].onclick=function(){
+
+			oUl.removeChild(this.parentNode); //removeChild要在父级中操作，所以选中ul， 删除的是a的父级li， this代表a
+		}
+
+
+		}
+	
+
+</script>
+</html>
